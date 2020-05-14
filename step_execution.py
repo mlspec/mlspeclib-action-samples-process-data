@@ -36,7 +36,6 @@ class StepExecution:
         )
 
         # Mocked up results
-        # Mocked up results
         return_dict = {
             "data_output_path": str(Path("tests/data/data_output.csv")),
             "data_statistics_path": str(Path("tests/data/data_stats.csv")),
@@ -49,5 +48,4 @@ class StepExecution:
         results_object.data_schemas_path = return_dict["data_schemas_path"]
         results_object.feature_file_path = return_dict["feature_file_path"]
 
-        errors = results_object.validate()  # noqa
         return results_object

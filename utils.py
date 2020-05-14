@@ -1,6 +1,8 @@
 import mlspeclib
 import logging
 from mlspeclib import MLObject
+import sys
+from io import StringIO
 
 class ConfigurationException(Exception):
     pass
@@ -46,7 +48,28 @@ def verify_result_contract(result_object: MLObject, expected_schema_type, expect
         rootLogger.debug(error_string)
         raise ValueError(error_string)
 
-
     rootLogger.debug(
         f"Successfully loaded and validated contract object: {contract_object.schema_type} on step {step_name}.output"
     )
+
+    return True
+
+def setupLogger():
+    rootLogger = logging.getLogger()
+    rootLogger.setLevel(logging.DEBUG)
+    formatter = logging.Formatter(
+        "%(asctime)s - %(name)s - %(levelname)s - %(message)s\n"
+    )
+
+    buffer = StringIO()
+    bufferHandler = logging.StreamHandler(buffer)
+    bufferHandler.setLevel(logging.DEBUG)
+    bufferHandler.setFormatter(formatter)
+    rootLogger.addHandler(bufferHandler)
+
+    stdout_handler = logging.StreamHandler(sys.stdout)
+    stdout_handler.setLevel(logging.DEBUG)
+    stdout_handler.setFormatter(formatter)
+    rootLogger.addHandler(stdout_handler)
+
+    return (rootLogger, buffer)
