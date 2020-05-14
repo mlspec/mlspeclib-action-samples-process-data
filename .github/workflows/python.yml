@@ -18,10 +18,9 @@ jobs:
       - name: Lint
         id: python_linting
         run: |
-          python3 -m pip install pipenv
-          pipenv shell
-          pipenv install -r requirements.txt
-          pipenv install flake8
+          python3 -m pip install -U pip
+          python3 -m pip install -r requirements.txt
+          python3 -m pip install flake8
           flake8 . --count --ignore=E501 --show-source --statistics
           flake8 tests --count --ignore=E501,E402 --show-source --statistics
 
