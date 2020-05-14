@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c9c67bade3698cdbcd2fe870393c1163214fd20448e8c96e306524b153bb51eb"
+            "sha256": "d64dc0db49d5a3c2956e5aac758bbd1c61a354a5f14b0986d94542581d0fdec4"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -22,6 +22,7 @@
                 "sha256:a4334cabf47c167d44ab5a6198837b80deec5d5bad1b5cf70c966c3a330260e8",
                 "sha256:d2bb6ea7586aaae889d3a5c332eafa851eeffe6e7068807c79b6c86c4326b938"
             ],
+            "index": "pypi",
             "version": "==2.2.3"
         },
         "gremlinpython": {
@@ -29,6 +30,7 @@
                 "sha256:426fa80b32f26583ccc447d9e6b198defda6925c84fda9e02afe67c643d1ef22",
                 "sha256:b21867aa878ec622c398c922770a6ef5ffcc2728e96d00ddc5c734af0710cca5"
             ],
+            "index": "pypi",
             "version": "==3.4.6"
         },
         "isodate": {
@@ -36,6 +38,7 @@
                 "sha256:2e364a3d5759479cdb2d37cce6b9376ea504db2ff90252a2e5b7cc89cc9ff2d8",
                 "sha256:aa4d33c06640f5352aca96e4b81afd8ab3b47337cc12089822d6f322ac772c81"
             ],
+            "index": "pypi",
             "version": "==0.6.0"
         },
         "marshmallow": {
@@ -43,6 +46,7 @@
                 "sha256:c2673233aa21dde264b84349dc2fd1dce5f30ed724a0a00e75426734de5b84ab",
                 "sha256:f88fe96434b1f0f476d54224d59333eba8ca1a203a2695683c1855675c4049a7"
             ],
+            "index": "pypi",
             "version": "==3.6.0"
         },
         "mlspeclib": {
@@ -58,6 +62,7 @@
                 "sha256:3943fbbbc1e902f41daf7f9165519f140c4451c179380677e6a848587042561a",
                 "sha256:d8c059dcd81dedb85a9f034d5e22dcb4442c0b201908bede99e306d65ea7c8e7"
             ],
+            "index": "pypi",
             "version": "==0.9.3"
         },
         "python-box": {
@@ -65,6 +70,7 @@
                 "sha256:37dcaee62446cef67ffad7baef0f1b5f541587e2064f1152ec3bc0ead64092a2",
                 "sha256:e54aaaf5deb2dc4c0427e0ecf60415697b559c98ab21f8a6e3ae1be443445f78"
             ],
+            "index": "pypi",
             "version": "==4.2.3"
         },
         "pyyaml": {
@@ -81,6 +87,7 @@
                 "sha256:cc8955cfbfc7a115fa81d85284ee61147059a753344bc51098f3ccd69b0d7e0c",
                 "sha256:d13155f591e6fcc1ec3b30685d50bf0711574e2c0dfffd7644babf8b5102ca1a"
             ],
+            "index": "pypi",
             "version": "==5.3.1"
         },
         "ruamel.yaml": {
@@ -88,6 +95,7 @@
                 "sha256:0962fd7999e064c4865f96fb1e23079075f4a2a14849bcdc5cdba53a24f9759b",
                 "sha256:099c644a778bf72ffa00524f78dd0b6476bca94a1da344130f4bf3381ce5b954"
             ],
+            "index": "pypi",
             "version": "==0.16.10"
         },
         "ruamel.yaml.clib": {
@@ -112,7 +120,7 @@
                 "sha256:ed5b3698a2bb241b7f5cbbe277eaa7fe48b07a58784fba4f75224fd066d253ad",
                 "sha256:f9dcc1ae73f36e8059589b601e8e4776b9976effd76c21ad6a855a74318efd6e"
             ],
-            "markers": "platform_python_implementation == 'CPython' and python_version < '3.9'",
+            "index": "pypi",
             "version": "==0.2.0"
         },
         "semver": {
@@ -120,6 +128,7 @@
                 "sha256:21eb9deafc627dfd122e294f96acd0deadf1b5b7758ab3bbdf3698155dca4705",
                 "sha256:b08a84f604ef579e474ce448672a05c8d50d1ee0b24cee9fb58a12b260e4d0dc"
             ],
+            "index": "pypi",
             "version": "==2.10.1"
         },
         "six": {
@@ -127,6 +136,7 @@
                 "sha256:236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a",
                 "sha256:8f3cd2e254d8f793e7f3d6d9df77b92252b52637291d0f0da013c76ea2724b6c"
             ],
+            "index": "pypi",
             "version": "==1.14.0"
         },
         "toml": {
@@ -134,6 +144,7 @@
                 "sha256:229f81c57791a41d65e399fc06bf0848bab550a9dfd5ed66df18ce5f05e73d5c",
                 "sha256:235682dd292d5899d361a811df37e04a8828a5b1da3115886b73cf81ebc9100e"
             ],
+            "index": "pypi",
             "version": "==0.10.0"
         },
         "tornado": {
@@ -146,6 +157,7 @@
                 "sha256:d4b3e5329f572f055b587efc57d29bd051589fb5a43ec8898c77a47ec2fa2bbb",
                 "sha256:e5f2585afccbff22390cddac29849df463b252b711aa2ce7c5f3f342a5b3b444"
             ],
+            "index": "pypi",
             "version": "==5.1.1"
         },
         "uritools": {
@@ -153,6 +165,7 @@
                 "sha256:405917a31ce58a57c8ccd0e4ea290f38baf2f4823819c3688f5331f1aee4ccb0",
                 "sha256:5ba20a5de979a6a65b3d55998bee86ca1d97075d0f22923b85590b5e39c2b307"
             ],
+            "index": "pypi",
             "version": "==3.0.0"
         },
         "wheel": {
