@@ -16,3 +16,10 @@ jobs:
           username: ${{ secrets.DOCKERUSERNAME }}
           password: ${{ secrets.DOCKERPASSWORD }}
           login-server: https://index.docker.io/v1/
+
+      - name: Publish to Registry
+        uses: HurricanKai/Publish-Docker-Github-Action@master
+        with:
+          name: aronchick/mlspeclib-action-sample-process-data
+          username: ${{ secrets.DOCKERUSERNAME }}
+          password: ${{ secrets.DOCKERPASSWORD }}
