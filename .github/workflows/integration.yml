@@ -13,6 +13,6 @@ jobs:
       - name: Docker Login
         uses: Azure/docker-login@v1
         with:
-          username: ${{ secrects.DOCKERUSERNAME }}
-          password: ${{ secrects.DOCKERPASSWORD }}
+          username: ${{ secrets.DOCKERUSERNAME }}
+          password: ${{ secrets.DOCKERPASSWORD }}
           login-server: https://index.docker.io/v1/
