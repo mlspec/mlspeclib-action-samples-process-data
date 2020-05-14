@@ -9,3 +9,10 @@ jobs:
         uses: actions/checkout@master
         with:
           ref: ${{github.ref}}
+          
+      - name: Docker Login
+        uses: Azure/docker-login@v1
+        with:
+          username: ${{ secrects.DOCKERUSERNAME }}
+          password: ${{ secrects.DOCKERPASSWORD }}
+          login-server: https://index.docker.io/v1/
