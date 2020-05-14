@@ -24,8 +24,8 @@ jobs:
           python3 -m pip install -U pip
           python3 -m pip install -r requirements.txt
           python3 -m pip install flake8
-          flake8 . --count --ignore=E501 --show-source --statistics
-          flake8 tests --count --ignore=E501,E402 --show-source --statistics
+          flake8 . --count --config=~/.flake8 --show-source --statistics
+          flake8 tests --count --config=~/.flake8 --show-source --statistics
 
       - name: Test
         id: python_test
