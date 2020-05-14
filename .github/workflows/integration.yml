@@ -22,7 +22,6 @@ jobs:
         with:
           # Docker repository to tag the image with
           repository: aronchick/mlspeclib-action-sample-process-data
-          tags: aronchick/mlspeclib-action-sample-process-data
           tag_with_ref: True
           tag_with_sha: True
           push: False
