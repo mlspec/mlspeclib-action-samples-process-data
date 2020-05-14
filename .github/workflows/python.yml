@@ -9,7 +9,7 @@ jobs:
         id: python_setup
         uses: actions/setup-python@v1
         with:
-          python-version: "3.666666"
+          python-version: "3.6.10"
 
       - name: Check Out Repository
         id: checkout_repository
@@ -21,7 +21,7 @@ jobs:
           pip install flake8
           flake8 code/ --count --ignore=E501 --show-source --statistics
           flake8 tests/ --count --ignore=E501,E402 --show-source --statistics
-      
+
       - name: Test
         id: python_test
         run: |
