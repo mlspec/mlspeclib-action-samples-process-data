@@ -17,9 +17,12 @@ jobs:
           password: ${{ secrets.DOCKERPASSWORD }}
           login-server: https://index.docker.io/v1/
 
-      - name: Publish to Registry
-        uses: HurricanKai/Publish-Docker-Github-Action@master
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v1.1.0
         with:
-          name: aronchick/mlspeclib-action-sample-process-data
-          username: ${{ secrets.DOCKERUSERNAME }}
-          password: ${{ secrets.DOCKERPASSWORD }}
+          # Docker repository to tag the image with
+          repository: aronchick/mlspeclib-action-sample-process-data
+          tags: aronchick/mlspeclib-action-sample-process-data
+          tag_with_ref: True
+          tag_with_sha: True
+          push: False
