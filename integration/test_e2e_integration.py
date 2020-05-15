@@ -62,6 +62,7 @@ class E2ETester(unittest.TestCase):
         environment_vars = ""
         environment_vars_list = []
 
+        workflow_node_id = None
         try:
             ms.empty_graph()
             workflow_node_id = ms.create_workflow_node(workflow_object, workflow_dict["run_id"])
@@ -89,9 +90,14 @@ class E2ETester(unittest.TestCase):
             self.rootLogger.debug(f"out = {str(out)}")
             self.rootLogger.debug(f"error = {str(err)}")
             self.assertTrue("ConfigurationException" in str(err))
-
+            result = ms.execute_query(f"g.V().has('workflow_node_id', '{workflow_node_id}').count()")
+            self.assertTrue(result[0] == 3)
         finally:
-            pass
+            try:
+                if workflow_node_id is not None:
+                    ms.execute_query(f"g.V().has('workflow_node_id', '{workflow_node_id}').drop()")
+            except ValueError:
+                pass
 
 
 if __name__ == "__main__":
