@@ -17,7 +17,7 @@ jobs:
           password: ${{ secrets.DOCKERPASSWORD }}
           login-server: https://index.docker.io/v1/
 
-      - name: Build and push Docker images
+      - name: Build Docker images
         uses: docker/build-push-action@v1.1.0
         with:
           # Docker repository to tag the image with
@@ -25,3 +25,11 @@ jobs:
           tag_with_ref: True
           tag_with_sha: True
           push: False
+
+      - name: Debugging with tmate
+        uses: mxschmitt/action-tmate@v2
+
+      - name: Test Image
+        id: test_image_e2e
+        run: |
+          python3 -m unittest integration/test_e2e_integration.py
