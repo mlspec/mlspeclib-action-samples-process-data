@@ -4,6 +4,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Set up Python 3.6
+        id: python_setup
+        uses: actions/setup-python@v1
+        with:
+          python-version: "3.6"
+          METASTORE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+    
       - name: Check Out Repository
         id: checkout_repository
         uses: actions/checkout@master
@@ -34,9 +41,7 @@ jobs:
 
       - name: Test Image
         id: test_image_e2e
-        with:
-          METASTORE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
-        run: |
+        uses: |
           python3 -m pip install --user --upgrade setuptools wheel
           python3 -m pip install pipenv
           python3 -m pipenv install -r requirements.txt
