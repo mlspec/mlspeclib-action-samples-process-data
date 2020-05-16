@@ -37,13 +37,13 @@ jobs:
       - name: Debugging with tmate
         id: tmate_debugging
         env:
-          INPUT_METASTORE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+          INPUT_METASTORE_CREDENTIALS: ${{ secrets.METASTORE_CREDENTIALS }}
         uses: mxschmitt/action-tmate@v2
 
       - name: Test Image
         id: test_image_e2e
         env:
-          INPUT_METASTORE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+          INPUT_METASTORE_CREDENTIALS: ${{ secrets.METASTORE_CREDENTIALS }}
         run: |
           python3 -m pip install --user --upgrade setuptools wheel
           python3 -m pip install pipenv
