@@ -40,7 +40,7 @@ class E2ETester(unittest.TestCase):
         )
         container_name = parameters_from_environment.get(
             "INPUT_container_name",
-            "aronchick/mlspeclib-action-samples-process-data:latest",
+            "mlspec/mlspeclib-action-samples-process-data:latest",
         )
 
         parameters_from_file = YAML.safe_load(
@@ -68,7 +68,7 @@ class E2ETester(unittest.TestCase):
         (workflow_object, errors) = MLObject.create_object_from_string(workflow_string)
 
         credentials = parameters_from_environment.get(
-            "INPUT_METASTORECREDENTIALS", None
+            "INPUT_METASTORE_CREDENTIALS", None
         )
         if credentials is None:
             credential_string = (
