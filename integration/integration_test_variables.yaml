@@ -1,29 +1,51 @@
-INPUT_parameters_directory: 'integration/.parameters'
-INPUT_execution_parameters: 'execution/execution_parameters.yaml'
-INPUT_schemas_directory: 'schemas'
+# Integration test variables
+INPUT_integration_tests_schemas_dir_name: 'integration/.parameters/schemas'
+
+# Variables to hand to the docker container to mock up a real run
+INPUT_parameters_directory: '/src/parameters'
+INPUT_schemas_directory: '/src/parameters/test_schemas'
+INPUT_execution_parameters:
+  schema_version: 999.0.1
+  schema_type: data_process_run
+  base_image: ubuntu1804
+  machine_type: NDv2
+  nodes: 5
+  cpu_per_node: 8
+  ram_per_node: 16Gi
+  gpu_required: True
+  output_root_path: 'https://contoso.s3.us-west-2.amazonaws.com/ml/processed_data'
+INPUT_step_name: 'process_data'
 INPUT_workflow:
   schema_type: workflow
-  schema_version: 0.0.1
+  schema_version: 999.0.1
   steps:
     process_data:
       input:
         schema_type: data_source
-        schema_version: 0.0.1
+        schema_version: 999.0.1
       execution:
         schema_type: data_process_run
-        schema_version: 0.0.1
+        schema_version: 999.0.1
       output:
         schema_type: data_result
-        schema_version: 0.0.1
+        schema_version: 999.0.1
       next: train
     train:
       previous: process_data
       input:
-        schema_type: data_source
-        schema_version: 0.0.1
-      execution:
-        schema_type: data_process_run
-        schema_version: 0.0.1
-      output:
         schema_type: data_result
-        schema_version: 0.0.1
+        schema_version: 999.0.1
+      execution:
+        schema_type: training_run
+        schema_version: 999.0.1
+      output:
+        schema_type: training_result
+        schema_version: 999.0.1
+INPUT_input_parameters:
+  schema_version: 999.0.1
+  schema_type: data_source
+  run_id: 6a9a5931-1c1d-47cc-aaf3-ad8b03f70575
+  step_id: 433b4d99-042d-47c5-8c2f-6a4f5094510e
+  run_date: 1970-01-08 00:00:00.00000
+  source_id: 894b0239-e616-43fa-914b-de55894ad67d
+  source_uri: 'https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/'

@@ -16,7 +16,8 @@ python-box = "*"
 semver = "*"
 PyMySQL = "*"
 PyYAML = "*"
-mlspeclib = {editable = true,path = "./../mlspec-lib"}
+msgpack = "*"
+mlspeclib = "*"
 
 [requires]
 python_version = "3.6"
