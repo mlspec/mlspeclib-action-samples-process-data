@@ -50,7 +50,7 @@ jobs:
           python3 -m pipenv install -r requirements.txt
           python3 -m pipenv run python3 -m unittest integration/test_e2e_integration.py
 
-- name: Build Docker images
+      - name: Build Docker images
         id: push_docker_images
         uses: docker/build-push-action@v1.1.0
         with:
