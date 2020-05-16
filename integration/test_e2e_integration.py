@@ -6,7 +6,6 @@ import yaml as YAML
 import uuid
 import datetime
 from mlspeclib import MLObject, MLSchema, Metastore
-import marshmallow
 import random
 import unittest
 import subprocess
