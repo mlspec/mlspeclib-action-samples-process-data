@@ -26,6 +26,8 @@ class E2ETester(unittest.TestCase):
         workflow_version = str("999999999999.9." + str(random.randint(0, 9999)))
         parameters_from_environment["INPUT_workflow_version"] = workflow_version
 
+        print(os.environ)
+
         for var in os.environ:
             if "INPUT" in var:
                 parameters_from_environment[var] = os.environ.get(var, default=None)
