@@ -32,4 +32,7 @@ jobs:
       - name: Test Image
         id: test_image_e2e
         run: |
+          python3 -m pip install pipenv
+          python3 -m pipenv install
+          python3 -m pipenv install -r requirements.txt
           python3 -m unittest integration/test_e2e_integration.py
