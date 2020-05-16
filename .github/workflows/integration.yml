@@ -36,3 +36,5 @@ jobs:
           python3 -m pip install pipenv
           python3 -m pipenv install -r requirements.txt
           python3 -m pipenv run python3 -m unittest integration/test_e2e_integration.py
+        with:
+          METASTORE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
