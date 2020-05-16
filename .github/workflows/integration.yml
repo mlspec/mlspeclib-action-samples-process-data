@@ -21,7 +21,7 @@ jobs:
         uses: docker/build-push-action@v1.1.0
         with:
           # Docker repository to tag the image with
-          repository: aronchick/mlspeclib-action-sample-process-data
+          repository: mlspeclib/mlspeclib-action-sample-process-data
           tag_with_ref: True
           tag_with_sha: True
           push: False
