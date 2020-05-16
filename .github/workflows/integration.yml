@@ -41,7 +41,7 @@ jobs:
 
       - name: Test Image
         id: test_image_e2e
-        uses: |
+        run: |
           python3 -m pip install --user --upgrade setuptools wheel
           python3 -m pip install pipenv
           python3 -m pipenv install -r requirements.txt
