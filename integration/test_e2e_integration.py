@@ -90,7 +90,6 @@ class E2ETester(unittest.TestCase):
 
         workflow_node_id = None
         try:
-            ms.empty_graph()
             workflow_node_id = ms.create_workflow_node(
                 workflow_object, workflow_dict["run_id"]
             )

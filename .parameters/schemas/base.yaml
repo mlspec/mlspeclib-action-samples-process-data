@@ -1,6 +1,6 @@
 mlspec_schema_version:
   # Identifies the version of this schema
-  meta: 999.0.1
+  meta: 500.0.1
 
 mlspec_schema_type:
   # Identifies the type of this schema
