@@ -2,6 +2,8 @@
 INPUT_integration_tests_schemas_dir_name: 'integration/.parameters/schemas'
 
 # Variables to hand to the docker container to mock up a real run
+INPUT_container_repo: mlspec
+INPUT_container_name: mlspeclib-action-samples-process-data:latest
 INPUT_parameters_directory: '/src/parameters'
 INPUT_schemas_directory: '/src/parameters/test_schemas'
 INPUT_execution_parameters:

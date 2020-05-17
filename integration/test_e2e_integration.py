@@ -23,14 +23,6 @@ class E2ETester(unittest.TestCase):
 
     def test_e2e(self):
         parameters_from_environment = {}
-        workflow_version = str("999999999999.9." + str(random.randint(0, 9999)))
-        parameters_from_environment["INPUT_workflow_version"] = workflow_version
-
-        print(os.environ)
-
-        for var in os.environ:
-            if "INPUT" in var:
-                parameters_from_environment[var] = os.environ.get(var, default=None)
 
         integration_tests_dir = parameters_from_environment.get(
             "INPUT_integration_tests_directory", "integration"
@@ -40,20 +32,31 @@ class E2ETester(unittest.TestCase):
             "INPUT_integration_tests_variable_file_name",
             "integration_test_variables.yaml",
         )
-        container_name = parameters_from_environment.get(
-            "INPUT_container_name",
-            "mlspec/mlspeclib-action-samples-process-data:latest",
-        )
 
-        parameters_from_file = YAML.safe_load(
-            (Path(integration_tests_dir) / variables_file_name).read_text("utf-8")
-        )
+        print(os.environ)
+
+        for var in os.environ:
+            if "INPUT" in var:
+                parameters_from_environment[var] = os.environ.get(var, default=None)
+
+        parameters_from_file = {}
+        parameters_file_location = Path(integration_tests_dir) / variables_file_name
+        if parameters_file_location.exists():
+            parameters_from_file = YAML.safe_load(
+                parameters_file_location.read_text("utf-8")
+            )
 
         # Building everything into parameters that we'll eventually write to environment variables to execute Docker
-        parameters = {**parameters_from_environment, **parameters_from_file}
+        parameters = {**parameters_from_file, **parameters_from_environment}
         schemas_dir_name = parameters.get(
             "INPUT_integration_tests_schemas_dir_name", "/src/parameters/schemas"
         )
+
+        repo_name = parameters.get("INPUT_container_repo")
+        container_name = parameters.get("INPUT_container_name")
+
+        parameters["INPUT_workflow_version"] = parameters.get("INPUT_workflow_version", str("999999999999.9." + str(random.randint(0, 9999))))
+        workflow_version = parameters["INPUT_workflow_version"]
 
         MLSchema.append_schema_to_registry(Path(schemas_dir_name))
 
@@ -103,9 +106,16 @@ class E2ETester(unittest.TestCase):
                 environment_vars_list.append("-e")
                 environment_vars_list.append(f"{param}={env_value}")
 
-            # exec_statement = ["docker", "run"] + environment_vars_list + [f"{container_name}:latest"]
+            exec_statement = [
+                "docker",
+                "pull",
+                "--no-cache",
+                f"{repo_name}/{container_name}:latest",
+            ]
             exec_statement = (
-                ["docker", "run"] + environment_vars_list + [f"{container_name}"]
+                ["docker", "run"]
+                + environment_vars_list
+                + [f"{repo_name}/{container_name}"]
             )
 
             # print(f"args statement: '{debug_args}'")
