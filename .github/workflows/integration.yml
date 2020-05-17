@@ -34,11 +34,11 @@ jobs:
           tag_with_sha: True
           push: False
 
-      - name: Debugging with tmate
-        id: tmate_debugging
-        env:
-          INPUT_METASTORE_CREDENTIALS: ${{ secrets.METASTORE_CREDENTIALS }}
-        uses: mxschmitt/action-tmate@v2
+#      - name: Debugging with tmate
+#        id: tmate_debugging
+#        env:
+#          INPUT_METASTORE_CREDENTIALS: ${{ secrets.METASTORE_CREDENTIALS }}
+#        uses: mxschmitt/action-tmate@v2
 
       - name: Test Image
         id: test_image_e2e
