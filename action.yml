@@ -1,0 +1,48 @@
+name: "MLSpec Sample Action - Process Data"
+description: "Sample Action Example: Processing Data"
+author: "aronchick"
+inputs:
+  METASTORE_CREDENTIALS:
+    description: """Credentials for accessing metastore. Must be base64 encoded using yaml_conversion = convert_dict_to_yaml(dict_conversion)
+    encode_to_utf8_bytes = yaml_conversion.encode("utf-8")
+    base64_encode = base64.urlsafe_b64encode(encode_to_utf8_bytes)
+    final_encode_to_utf8 = str(base64_encode, "utf-8")."""
+    required: true
+  parameters_directory:
+    description: "Location of the parameters directory. Defaults to '.parameters'"
+    required: True
+    default: '.parameters'
+  execution_parameters_file:
+    description: "YAML file detailing the parameters for the process execution."
+    required: true
+    default: ".parameters/execution/execution.yaml"
+  schemas_directory: '/src/parameters/test_schemas'
+    description: "Directory for all schemas to validate. Must include base schema (if used)."
+    required: true
+    default: ".parameters/schemas"
+  step_name:
+    description: "Name for this step referenced in the workflow."
+    required: true
+    default: "process_data"
+  workflow_node_id:
+    description: "Workflow to load from the database."
+    required: true
+    default: "workflow|999999999999.9.9447|418e92ae-6793-4867-a82d-13e32cf570d2"
+  input_parameters:
+    description: "Input parameters (need to get from previous step, file or DB)"
+    required: true
+    default:
+        schema_version: 500.0.1
+        schema_type: data_source
+        run_id: 6a9a5931-1c1d-47cc-aaf3-ad8b03f70575
+        step_id: 433b4d99-042d-47c5-8c2f-6a4f5094510e
+        run_date: 1970-01-08 00:00:00.00000
+        source_id: 894b0239-e616-43fa-914b-de55894ad67d
+        source_uri: 'https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/'
+
+branding:
+  icon: "chevron-up"
+  color: "blue"
+runs:
+  using: "docker"
+  image: "Dockerfile"
