@@ -109,9 +109,22 @@ class E2ETester(unittest.TestCase):
             exec_statement = [
                 "docker",
                 "pull",
-                "--no-cache",
-                f"{repo_name}/{container_name}:latest",
+                f"{repo_name}/{container_name}",
             ]
+
+            print(
+                f"docker pull --no-cache {repo_name}/{container_name}"
+            )
+            self.rootLogger.debug(f"exec_statement = {exec_statement}")
+
+            p = subprocess.Popen(
+                exec_statement, stdout=subprocess.PIPE, stderr=subprocess.PIPE
+            )
+            out, err = p.communicate()
+            self.rootLogger.debug(f"out = {str(out)}")
+            self.rootLogger.debug(f"error = {str(err)}")
+            self.assertTrue(str(err, "utf-8") == "")
+
             exec_statement = (
                 ["docker", "run"]
                 + environment_vars_list
