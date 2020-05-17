@@ -9,7 +9,6 @@ from mlspeclib import MLObject, MLSchema, Metastore
 import random
 import unittest
 import subprocess
-import base64
 
 sys.path.append(str(Path.cwd()))
 sys.path.append(str(Path.cwd() / "bin"))
@@ -121,7 +120,7 @@ class E2ETester(unittest.TestCase):
             out, err = p.communicate()
             self.rootLogger.debug(f"out = {str(out)}")
             self.rootLogger.debug(f"error = {str(err)}")
-            self.assertTrue(str(err, 'utf-8') == '')
+            self.assertTrue(str(err, "utf-8") == "")
             result = ms.execute_query(
                 f"g.V().has('workflow_node_id', '{workflow_node_id}').count()"
             )
