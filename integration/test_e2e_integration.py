@@ -9,6 +9,7 @@ from mlspeclib import MLObject, MLSchema, Metastore
 import random
 import unittest
 import subprocess
+import base64
 
 sys.path.append(str(Path.cwd()))
 sys.path.append(str(Path.cwd() / "bin"))
@@ -69,20 +70,19 @@ class E2ETester(unittest.TestCase):
         workflow_string = YAML.safe_dump(workflow_dict)
         (workflow_object, errors) = MLObject.create_object_from_string(workflow_string)
 
-        credentials = parameters_from_environment.get(
+        credentials_packed = parameters_from_environment.get(
             "INPUT_METASTORE_CREDENTIALS", None
         )
-        if credentials is None:
-            credential_string = (
+
+        if credentials_packed is None:
+            credentials_packed = (
                 Path(integration_tests_dir) / "metastore_credentials.yaml"
             ).read_text(encoding="utf-8")
 
-            # TODO Sometimes secrets have no spacer. Should figure this out.
-            parameters["INPUT_METASTORE_CREDENTIALS"] = credential_string
+        # TODO Sometimes secrets have no spacer. Should figure this out.
+        parameters["INPUT_METASTORE_CREDENTIALS"] = credentials_packed
 
-            credentials = YAML.safe_load(credential_string)
-
-        ms = Metastore(credentials)
+        ms = Metastore(credentials_packed)
         debug_args = ""
         environment_vars_list = []
 

@@ -18,6 +18,7 @@ PyMySQL = "*"
 PyYAML = "*"
 msgpack = "*"
 mlspeclib = "*"
+toml = "*"
 
 [requires]
 python_version = "3.6"
