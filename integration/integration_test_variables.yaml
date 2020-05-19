@@ -2,7 +2,7 @@
 INPUT_integration_tests_schemas_dir_name: 'integration/.parameters/schemas'
 
 # Variables to hand to the docker container to mock up a real run
-INPUT_container_repo: mlspec
+INPUT_container_repo_name: mlspec
 INPUT_container_name: mlspeclib-action-samples-process-data:latest
 INPUT_parameters_directory: '/src/parameters'
 INPUT_schemas_directory: '/src/parameters/test_schemas'
@@ -42,6 +42,17 @@ INPUT_workflow:
         schema_version: 999.0.1
       output:
         schema_type: training_result
+        schema_version: 999.0.1
+    package:
+      previous: train
+      input:
+        schema_type: training_result
+        schema_version: 999.0.1
+      execution:
+        schema_type: package_run
+        schema_version: 999.0.1
+      output:
+        schema_type: package_result
         schema_version: 999.0.1
 INPUT_input_parameters:
   schema_version: 999.0.1

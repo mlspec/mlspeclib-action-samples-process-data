@@ -15,10 +15,13 @@ class DockerBuildTester(unittest.TestCase):
         (self.rootLogger, self._buffer) = setupLogger()
 
     def test_docker_build(self):
-        container_name = os.environ.get(
-            "INPUT_container_name", "mlspeclib-action-sample-process-data"
+        repo_name = os.environ.get(
+            "INPUT_repo_name", "mlspec"
         )
-        exec_statement = ["docker", "run", f"{container_name}:latest"]
+        container_name = os.environ.get(
+            "INPUT_container_name", "mlspeclib-action-samples-process-data"
+        )
+        exec_statement = ["docker", "run", f"{repo_name}/{container_name}:latest"]
         # p = subprocess.Popen(["docker"])
         # out, err = p.communicate()
 

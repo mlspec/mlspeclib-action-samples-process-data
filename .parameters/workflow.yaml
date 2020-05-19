@@ -23,3 +23,14 @@ steps:
     output:
       schema_type: training_result
       schema_version: 500.0.1
+  package:
+    previous: train
+    input:
+      schema_type: training_result
+      schema_version: 500.0.1
+    execution:
+      schema_type: package_run
+      schema_version: 500.0.1
+    output:
+      schema_type: package_result
+      schema_version: 500.0.1

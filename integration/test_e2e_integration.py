@@ -52,7 +52,7 @@ class E2ETester(unittest.TestCase):
             "INPUT_integration_tests_schemas_dir_name", "/src/parameters/schemas"
         )
 
-        repo_name = parameters.get("INPUT_container_repo")
+        repo_name = parameters.get("INPUT_container_repo_name")
         container_name = parameters.get("INPUT_container_name")
 
         parameters["INPUT_workflow_version"] = parameters.get("INPUT_workflow_version", str("999999999999.9." + str(random.randint(0, 9999))))
@@ -60,7 +60,13 @@ class E2ETester(unittest.TestCase):
 
         MLSchema.append_schema_to_registry(Path(schemas_dir_name))
 
-        workflow_dict = YAML.safe_load(YAML.safe_dump(parameters.get("INPUT_workflow")))
+        workflow_input = parameters.get("INPUT_workflow")
+        if isinstance(workflow_input, dict):
+            workflow_string = YAML.safe_dump(workflow_input)
+        else:
+            workflow_string = workflow_input
+
+        workflow_dict = YAML.safe_load(workflow_string)
         workflow_dict["workflow_version"] = workflow_version
         workflow_dict["run_id"] = str(uuid.uuid4())
         parameters["GITHUB_RUN_ID"] = workflow_dict["run_id"]
@@ -114,15 +120,15 @@ class E2ETester(unittest.TestCase):
             print(
                 f"docker pull --no-cache {repo_name}/{container_name}"
             )
-            self.rootLogger.debug(f"exec_statement = {exec_statement}")
+            # self.rootLogger.debug(f"exec_statement = {exec_statement}")
 
             p = subprocess.Popen(
                 exec_statement, stdout=subprocess.PIPE, stderr=subprocess.PIPE
             )
             out, err = p.communicate()
-            self.rootLogger.debug(f"out = {str(out)}")
-            self.rootLogger.debug(f"error = {str(err)}")
-            self.assertTrue(str(err, "utf-8") == "")
+            # self.rootLogger.debug(f"out = {str(out)}")
+            # self.rootLogger.debug(f"error = {str(err)}")
+            # self.assertTrue(str(err, "utf-8") == "")
 
             exec_statement = (
                 ["docker", "run"]
@@ -132,9 +138,9 @@ class E2ETester(unittest.TestCase):
 
             # print(f"args statement: '{debug_args}'")
             print(
-                f"docker run \\\n {debug_args} \\\n -ti --entrypoint=/bin/bash {container_name}"
+                f"docker run \\\n {debug_args} \\\n -ti --entrypoint=/bin/bash {repo_name}/{container_name}"
             )
-            self.rootLogger.debug(f"exec_statement = {exec_statement}")
+            # self.rootLogger.debug(f"exec_statement = {exec_statement}")
 
             p = subprocess.Popen(
                 exec_statement, stdout=subprocess.PIPE, stderr=subprocess.PIPE
@@ -146,7 +152,7 @@ class E2ETester(unittest.TestCase):
             result = ms.execute_query(
                 f"g.V().has('workflow_node_id', '{workflow_node_id}').count()"
             )
-            self.assertTrue(result[0] == 7)
+            self.assertTrue(result[0] == 8)
 
         finally:
             try:
