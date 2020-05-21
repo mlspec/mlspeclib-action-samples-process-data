@@ -30,6 +30,8 @@ jobs:
         with:
           # Docker repository to tag the image with
           repository: mlspec/mlspeclib-action-sample-process-data
+          username: ${{ secrets.DOCKERUSERNAME }}
+          password: ${{ secrets.DOCKERPASSWORD }}
           tag_with_ref: True
           tag_with_sha: True
           push: False
@@ -56,6 +58,8 @@ jobs:
         with:
           # Docker repository to tag the image with
           repository: mlspec/mlspeclib-action-sample-process-data
+          username: ${{ secrets.DOCKERUSERNAME }}
+          password: ${{ secrets.DOCKERPASSWORD }}
           tag_with_ref: True
           tag_with_sha: True
           push: True
