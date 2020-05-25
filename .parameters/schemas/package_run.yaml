@@ -36,5 +36,5 @@ build-args:
   empty: True
 
 secrets:
-  type: List
+  type: dict
   required: True

@@ -37,7 +37,7 @@ class StepExecutionTester(unittest.TestCase):
         # THESE SHOULD BE THE ONLY SETTINGS FOR THIS FILE
         step_name = "process_data"
         expected_results_schema_type = "data_result"  # MUST BE A LOADED SCHEMA
-        expected_results_schema_version = "0.0.1"  # MUST BE A SEMVER
+        expected_results_schema_version = "500.0.1"  # MUST BE A SEMVER
 
         step_execution_object = StepExecution(input_parameters, execution_parameters)
 
