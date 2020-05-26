@@ -13,10 +13,10 @@ inputs:
     description: "YAML file detailing the parameters for the process execution."
     required: true
     default: ".parameters/execution/execution.yaml"
-  schemas_directory: '/src/parameters/test_schemas'
-    description: "Directory for all schemas to validate. Must include base schema (if used)."
-    required: true
-    default: ".parameters/schemas"
+#  schemas_directory: '/src/parameters/test_schemas'
+#    description: "Directory for all schemas to validate. Must include base schema (if used)."
+#    required: true
+#    default: ".parameters/schemas"
   step_name:
     description: "Name for this step referenced in the workflow."
     required: true
