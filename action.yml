@@ -5,30 +5,49 @@ inputs:
   METASTORE_CREDENTIALS:
     description: "Some text"
     required: true
-  parameters_directory:
-    description: "Location of the parameters directory. Defaults to '.parameters'"
-    required: True
-    default: '.parameters'
-  execution_parameters_file:
-    description: "YAML file detailing the parameters for the process execution."
-    required: true
-    default: ".parameters/execution/execution.yaml"
-#  schemas_directory: '/src/parameters/test_schemas'
-#    description: "Directory for all schemas to validate. Must include base schema (if used)."
-#    required: true
-#    default: ".parameters/schemas"
-  step_name:
-    description: "Name for this step referenced in the workflow."
-    required: true
-    default: "process_data"
   workflow_node_id:
-    description: "Workflow to load from the database."
+    description: "Some text"
     required: true
-    default: "workflow|999999999999.9.9447|418e92ae-6793-4867-a82d-13e32cf570d2"
-  input_parameters:
-    description: "Input parameters (need to get from previous step, file or DB)"
+  step_name:
+    description: "Some text"
     required: true
-    default: "foo"
+  schemas_directory:
+    description: "Some text"
+    required: true
+    default: ".parameters/schemas"
+  schemas_git_url:
+    description: "Some text"
+    required: false
+  previous_step_name:
+    description: "Some text"
+    required: false
+  next_step_name:
+    description: "Some text"
+    required: false
+  input_parameters_raw:
+    description: "Some text"
+    required: false
+  input_parameters_base64:
+    description: "Some text"
+    required: false
+  input_parameters_node_id:
+    description: "Some text"
+    required: false
+  input_parameters_file_path:
+    description: "Some text"
+    required: false
+  execution_parameters_raw:
+    description: "Some text"
+    required: false
+  execution_parameters_base64:
+    description: "Some text"
+    required: false
+  execution_parameters_node_id:
+    description: "Some text"
+    required: false
+  execution_parameters_file_path:
+    description: "Some text"
+    required: false
 branding:
   icon: "chevron-up"
   color: "blue"
