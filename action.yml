@@ -1,4 +1,4 @@
-name: "Foo-Bar-Baz"
+name: "MLSpec Sample Action - Process Data"
 description: "Sample Action Example: Processing Data"
 author: "aronchick"
 inputs:
