@@ -51,6 +51,6 @@ inputs:
 branding:
   icon: "chevron-up"
   color: "blue"
-runs:
-  using: "docker"
-  image: "Dockerfile"
+runs: 
+  using: 'docker'
+  image: 'docker://mlspec/mlspeclib-action-samples-process-data@sha256:baf8c41403ec9252dd09d245492f0de18e5c60773235c919c61ee4533b443560'
