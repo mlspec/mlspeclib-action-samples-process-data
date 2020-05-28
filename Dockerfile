@@ -9,6 +9,7 @@ COPY requirements.txt /requirements.txt
 RUN python3 -m pip install -U pip
 RUN python3 -m pip install --no-cache-dir -r /requirements.txt
 
+WORKDIR /src
 COPY .parameters/schemas /src/parameters
 COPY integration/.parameters/schemas /src/parameters/test_schemas
 COPY step_execution.py /src
