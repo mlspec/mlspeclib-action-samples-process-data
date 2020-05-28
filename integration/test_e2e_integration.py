@@ -100,7 +100,7 @@ class E2ETester(unittest.TestCase):
                 workflow_object, workflow_dict["run_id"]
             )
             ms.create_workflow_steps(workflow_node_id, workflow_object)
-            parameters["INPUT_workflow_node_id"] = workflow_node_id
+            parameters["INPUT_WORKFLOW_NODE_ID"] = workflow_node_id
 
             for param in parameters:
                 if isinstance(parameters[param], dict):
