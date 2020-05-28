@@ -29,8 +29,9 @@ class DockerBuildTester(unittest.TestCase):
             exec_statement, stdout=subprocess.PIPE, stderr=subprocess.PIPE
         )
         out, err = p.communicate()
-        self.rootLogger.debug(f"error = {str(err)}")
-        self.assertTrue("ValueError" in str(err))
+        self.rootLogger.debug(f"{str(err)}")
+        self.assertTrue(p.returncode == 1)
+        self.assertTrue("No value provided" in str(out))
 
 
 if __name__ == "__main__":
