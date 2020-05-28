@@ -30,7 +30,7 @@ class DockerBuildTester(unittest.TestCase):
         )
         out, err = p.communicate()
         self.rootLogger.debug(f"error = {str(err)}")
-        self.assertTrue("ConfigurationException" in str(err))
+        self.assertTrue("ValueError" in str(err))
 
 
 if __name__ == "__main__":
