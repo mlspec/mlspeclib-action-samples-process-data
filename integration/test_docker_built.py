@@ -16,10 +16,10 @@ class DockerBuildTester(unittest.TestCase):
 
     def test_docker_build(self):
         repo_name = os.environ.get(
-            "INPUT_repo_name", "mlspec"
+            "INPUT_REPO_NAME", "mlspec"
         )
         container_name = os.environ.get(
-            "INPUT_container_name", "mlspeclib-action-samples-process-data"
+            "INPUT_CONTAINER_NAME", "mlspeclib-action-samples-process-data"
         )
         exec_statement = ["docker", "run", f"{repo_name}/{container_name}:latest"]
         # p = subprocess.Popen(["docker"])

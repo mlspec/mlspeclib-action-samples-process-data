@@ -25,11 +25,11 @@ class E2ETester(unittest.TestCase):
         parameters_from_environment = {}
 
         integration_tests_dir = parameters_from_environment.get(
-            "INPUT_integration_tests_directory", "integration"
+            "INPUT_INTEGRATION_TESTS_DIRECTORY", "integration"
         )
-        # parameters_dir_name = parameters_from_environment.get("INPUT_parameters_directory", "/src/.parameters")
+        # parameters_dir_name = parameters_from_environment.get("INPUT_PARAMETERS_DIRECTORY", "/src/.parameters")
         variables_file_name = parameters_from_environment.get(
-            "INPUT_integration_tests_variable_file_name",
+            "INPUT_INTEGRATION_TESTS_VARIABLE_FILE_NAME",
             "integration_test_variables.yaml",
         )
 
@@ -49,18 +49,18 @@ class E2ETester(unittest.TestCase):
         # Building everything into parameters that we'll eventually write to environment variables to execute Docker
         parameters = {**parameters_from_file, **parameters_from_environment}
         schemas_dir_name = parameters.get(
-            "INPUT_integration_tests_schemas_dir_name", "/src/parameters/schemas"
+            "INPUT_INTEGRATION_TESTS_SCHEMAS_DIR_NAME", "/src/parameters/schemas"
         )
 
-        repo_name = parameters.get("INPUT_container_repo_name")
-        container_name = parameters.get("INPUT_container_name")
+        repo_name = parameters.get("INPUT_CONTAINER_REPO_NAME")
+        container_name = parameters.get("INPUT_CONTAINER_NAME")
 
-        parameters["INPUT_workflow_version"] = parameters.get("INPUT_workflow_version", str("999999999999.9." + str(random.randint(0, 9999))))
-        workflow_version = parameters["INPUT_workflow_version"]
+        parameters["INPUT_WORKFLOW_VERSION"] = parameters.get("INPUT_WORKFLOW_VERSION", str("999999999999.9." + str(random.randint(0, 9999))))
+        workflow_version = parameters["INPUT_WORKFLOW_VERSION"]
 
         MLSchema.append_schema_to_registry(Path(schemas_dir_name))
 
-        workflow_input = parameters.get("INPUT_workflow")
+        workflow_input = parameters.get("INPUT_WORKFLOW")
         if isinstance(workflow_input, dict):
             workflow_string = YAML.safe_dump(workflow_input)
         else:

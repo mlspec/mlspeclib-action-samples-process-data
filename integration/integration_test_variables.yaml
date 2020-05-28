@@ -1,12 +1,12 @@
 # Integration test variables
-INPUT_integration_tests_schemas_dir_name: 'integration/.parameters/schemas'
+INPUT_INTEGRATION_TESTS_SCHEMAS_DIR_NAME: 'integration/.parameters/schemas'
 
 # Variables to hand to the docker container to mock up a real run
-INPUT_container_repo_name: mlspec
-INPUT_container_name: mlspeclib-action-samples-process-data:latest
-INPUT_parameters_directory: '/src/parameters'
-INPUT_schemas_directory: '/src/parameters/test_schemas'
-INPUT_execution_parameters_raw:
+INPUT_CONTAINER_REPO_NAME: mlspec
+INPUT_CONTAINER_NAME: mlspeclib-action-samples-process-data:latest
+INPUT_PARAMETERS_DIRECTORY: '/src/parameters'
+INPUT_SCHEMAS_DIRECTORY: '/src/parameters/test_schemas'
+INPUT_EXECUTION_PARAMETERS_RAW:
   schema_version: 999.0.1
   schema_type: data_process_run
   base_image: ubuntu1804
@@ -16,8 +16,8 @@ INPUT_execution_parameters_raw:
   ram_per_node: 16Gi
   gpu_required: True
   output_root_path: 'https://contoso.s3.us-west-2.amazonaws.com/ml/processed_data'
-INPUT_step_name: 'process_data'
-INPUT_workflow:
+INPUT_STEP_NAME: 'process_data'
+INPUT_WORKFLOW:
   schema_type: workflow
   schema_version: 999.0.1
   steps:
@@ -54,7 +54,7 @@ INPUT_workflow:
       output:
         schema_type: package_result
         schema_version: 999.0.1
-INPUT_input_parameters_raw:
+INPUT_INPUT_PARAMETERS_RAW:
   schema_version: 999.0.1
   schema_type: data_source
   run_id: 6a9a5931-1c1d-47cc-aaf3-ad8b03f70575
