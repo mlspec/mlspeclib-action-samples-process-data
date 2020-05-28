@@ -11,7 +11,7 @@ inputs:
   STEP_NAME:
     description: "Some text"
     required: true
-  SCHEMA_DIRECTORY:
+  SCHEMAS_DIRECTORY:
     description: "Some text"
     required: true
     default: ".parameters/schemas"
