@@ -48,6 +48,18 @@ inputs:
   EXECUTION_PARAMETERS_FILE_PATH:
     description: "Some text"
     required: false
+output:
+    output_base64_encoded:
+      description: "Some text"
+    input_node_id:
+      description: "Some text"
+    execution_node_id:
+      description: "Some text"
+    output_node_id:
+      description: "Some text"
+    log_node_id:
+      description: "Some text"
+
 branding:
   icon: "chevron-up"
   color: "blue"
