@@ -65,4 +65,4 @@ branding:
   color: "blue"
 runs: 
   using: 'docker'
-  image: 'docker://registry.hub.docker.com/mlspec/mlspeclib-action-samples-process-data@sha256:baf8c41403ec9252dd09d245492f0de18e5c60773235c919c61ee4533b443560'
+  image: 'docker://registry.hub.docker.com/mlspec/mlspeclib-action-samples-process-data@sha256:26b7d5141e944b490840831ce15f895b0c1f285c7aca3ebbe1d40a995b44795b'
