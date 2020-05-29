@@ -2,6 +2,7 @@ import logging
 from mlspeclib import MLObject
 import sys
 from io import StringIO
+import os
 
 
 class ConfigurationException(Exception):
@@ -106,8 +107,12 @@ class setupLogger:
         return self._buffer
 
     @staticmethod
-    def print_and_log(msg):
+    def print_and_log(variable_name, variable_value):
         logger = setupLogger()
         rootLogger = logger.get_root_logger()
-        print(msg)
-        rootLogger.debug(msg)
+        # echo "::set-output name=time::$time"
+        output_message = f"::set-output name={variable_name}::{variable_value}"
+        print(output_message)
+        rootLogger.debug(output_message)
+
+        os.environ[variable_name] = variable_value
