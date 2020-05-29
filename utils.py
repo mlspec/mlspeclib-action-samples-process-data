@@ -2,7 +2,7 @@ import logging
 from mlspeclib import MLObject
 import sys
 from io import StringIO
-import os
+from logging import LogRecord
 
 
 class ConfigurationException(Exception):
@@ -61,6 +61,7 @@ def verify_result_contract(
     return True
 
 
+# TODO: Think about moving logger to a library of some kind so that it can be reused with this signature across derivaed containers
 class setupLogger:
     _rootLogger = None
     _buffer = None
@@ -86,6 +87,13 @@ class setupLogger:
             stdout_handler.setFormatter(formatter)
             stdout_handler.set_name("stdout.logger")
             self._rootLogger.addHandler(stdout_handler)
+
+            set_output_handler = logging.StreamHandler(sys.stdout)
+            set_output_handler.setLevel(logging.NOTSET)
+            set_output_handler.setFormatter(logging.Formatter("%(message)s"))
+            set_output_handler.addFilter(self.filter_for_outputs)
+            set_output_handler.set_name("setoutput.logger")
+            self._rootLogger.addHandler(set_output_handler)
         else:
             for i, handler in enumerate(self._rootLogger.handlers):
                 if handler.name == "buffer.logger":
@@ -106,13 +114,16 @@ class setupLogger:
     def get_buffer(self):
         return self._buffer
 
-    @staticmethod
-    def print_and_log(variable_name, variable_value):
-        logger = setupLogger()
-        rootLogger = logger.get_root_logger()
+    def print_and_log(self, variable_name, variable_value):
         # echo "::set-output name=time::$time"
         output_message = f"::set-output name={variable_name}::{variable_value}"
         print(output_message)
-        rootLogger.debug(output_message)
+        self._rootLogger.critical(output_message)
 
-        os.environ[variable_name] = variable_value
+        return output_message
+
+    @staticmethod
+    def filter_for_outputs(record: LogRecord):
+        if str(record.msg).startswith("::set-output"):
+            return True
+        return False
