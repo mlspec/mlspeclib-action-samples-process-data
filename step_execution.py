@@ -1,4 +1,3 @@
-import logging
 from mlspeclib import MLObject
 from pathlib import Path
 from utils import setupLogger
