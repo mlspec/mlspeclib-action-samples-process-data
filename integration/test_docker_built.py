@@ -12,7 +12,7 @@ from utils import setupLogger  # noqa
 
 class DockerBuildTester(unittest.TestCase):
     def setUp(self):
-        (self.rootLogger, self._buffer) = setupLogger()
+        (self.rootLogger, self._buffer) = setupLogger().get_loggers()
 
     def test_docker_build(self):
         repo_name = os.environ.get(

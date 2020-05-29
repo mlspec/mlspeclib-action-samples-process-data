@@ -18,7 +18,7 @@ from utils import setupLogger  # noqa
 
 class E2ETester(unittest.TestCase):
     def setUp(self):
-        (self.rootLogger, self._buffer) = setupLogger()
+        (self.rootLogger, self._buffer) = setupLogger().get_loggers()
         self.rootLogger.setLevel(logging.DEBUG)
 
     def test_e2e(self):

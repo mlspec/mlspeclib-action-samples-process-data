@@ -19,7 +19,7 @@ class StepExecutionTester(unittest.TestCase):
     rootLogger = None
 
     def setUp(self):
-        (self.rootLogger, self._buffer) = setupLogger()
+        (self.rootLogger, self._buffer) = setupLogger().get_loggers()
 
     def test_e2e(self):
         MLSchema.populate_registry()
