@@ -93,7 +93,7 @@ class setupLogger:
 
             if self._buffer is None:
                 raise SystemError(
-                    f"Somehow, we've lost the 'buffer' logger, meaning nothing will be printed. Exiting now."
+                    "Somehow, we've lost the 'buffer' logger, meaning nothing will be printed. Exiting now."
                 )
 
     def get_loggers(self):
