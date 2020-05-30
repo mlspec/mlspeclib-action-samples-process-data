@@ -11,7 +11,7 @@ import unittest
 sys.path.append(str(Path.cwd().parent))
 
 from step_execution import StepExecution
-from utils import verify_result_contract, setupLogger
+from utils.utils import verify_result_contract, setupLogger
 
 
 class StepExecutionTester(unittest.TestCase):

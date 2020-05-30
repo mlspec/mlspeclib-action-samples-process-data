@@ -1,6 +1,6 @@
 from mlspeclib import MLObject
 from pathlib import Path
-from utils import setupLogger
+from utils.utils import setupLogger
 
 # Making this a class in case we want sub functions.
 class StepExecution:

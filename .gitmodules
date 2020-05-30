@@ -1,3 +1,6 @@
 [submodule "mlspeclib-action-samples-schemas"]
 	path = mlspeclib-action-samples-schemas
 	url = git@github.com:mlspec/mlspeclib-action-samples-schemas
+[submodule "utils"]
+	path = utils
+	url = git@github.com:mlspec/mlspeclib-action-utils.git
