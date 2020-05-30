@@ -1,9 +1,10 @@
 from mlspeclib import MLObject
 from pathlib import Path
+import sys
 
 sys.path.append(str(Path.cwd().parent))
 
-from utils.utils import setupLogger
+from utils.utils import setupLogger  # noqa
 
 # Making this a class in case we want sub functions.
 class StepExecution:
