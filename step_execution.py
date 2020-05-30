@@ -1,5 +1,8 @@
 from mlspeclib import MLObject
 from pathlib import Path
+
+sys.path.append(str(Path.cwd().parent))
+
 from utils.utils import setupLogger
 
 # Making this a class in case we want sub functions.
