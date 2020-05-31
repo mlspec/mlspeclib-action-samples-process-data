@@ -3,4 +3,4 @@
 	url = git@github.com:mlspec/mlspeclib-action-samples-schemas
 [submodule "utils"]
 	path = utils
-	url = git@github.com:mlspec/mlspeclib-action-utils.git
+	url = https://github.com/mlspec/mlspeclib-action-utils.git
