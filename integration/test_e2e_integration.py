@@ -12,8 +12,9 @@ import subprocess
 
 sys.path.append(str(Path.cwd()))
 sys.path.append(str(Path.cwd() / "bin"))
+sys.path.append(str(Path.cwd().parent))
 
-from utils import setupLogger  # noqa
+from utils.utils import setupLogger  # noqa
 
 
 class E2ETester(unittest.TestCase):
