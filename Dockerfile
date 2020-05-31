@@ -14,6 +14,6 @@ COPY .parameters/schemas /src/parameters
 COPY integration/.parameters/schemas /src/parameters/test_schemas
 COPY step_execution.py /src
 COPY integration/container_debugging.sh /src
-COPY utils/ utils
+COPY utils/utils.py /src/utils
 
 ENTRYPOINT ["/src/entrypoint.sh"]
