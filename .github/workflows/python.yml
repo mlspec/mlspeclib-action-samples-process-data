@@ -14,9 +14,11 @@ jobs:
       - name: Check Out Repository
         id: checkout_repository
         uses: actions/checkout@v1
+        with:
+          submodules: 'true'
 
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v2
+#      - name: Setup tmate session
+#        uses: mxschmitt/action-tmate@v2
         
       - name: Lint
         id: python_linting

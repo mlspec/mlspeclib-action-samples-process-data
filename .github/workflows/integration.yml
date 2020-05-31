@@ -15,7 +15,8 @@ jobs:
         uses: actions/checkout@master
         with:
           ref: ${{github.ref}}
-
+          submodules: 'true'
+  
       - name: Docker Login
         id: docker_login
         uses: Azure/docker-login@v1
