@@ -22,6 +22,8 @@ jobs:
         
       - name: Lint
         id: python_linting
+        env:
+          INPUT_METASTORE_CREDENTIALS: '${{ secrets.METASTORE_CREDENTIALS }}'
         run: |
           python3 -m pip install -U pip
           python3 -m pip install -r requirements.txt
@@ -31,6 +33,8 @@ jobs:
 
       - name: Test
         id: python_test
+        env:
+          INPUT_METASTORE_CREDENTIALS: '${{ secrets.METASTORE_CREDENTIALS }}'
         run: |
           python3 -m unittest tests/test*
           python3 -m unittest integration/test*
