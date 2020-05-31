@@ -15,7 +15,7 @@ jobs:
         id: checkout_repository
         uses: actions/checkout@v1
         with:
-          submodules: 'true'
+          submodules: 'recursive'
 
 #      - name: Setup tmate session
 #        uses: mxschmitt/action-tmate@v2
