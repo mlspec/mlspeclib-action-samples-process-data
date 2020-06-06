@@ -7,6 +7,3 @@
 [submodule ".parameters/.parameters/schemas"]
 	path = .parameters/.parameters/schemas
 	url = git@github.com:mlspec/mlspeclib-action-samples-schemas.git
-[submodule ".parameters/schemas"]
-	path = .parameters/schemas
-	url = git@github.com:mlspec/mlspeclib-action-samples-schemas.git
