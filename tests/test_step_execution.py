@@ -7,6 +7,7 @@ import sys
 import datetime
 from mlspeclib import MLObject, MLSchema
 import unittest
+from random import random, randint, randrange
 
 sys.path.append(str(Path.cwd().parent))
 
@@ -67,8 +68,17 @@ class StepExecutionTester(unittest.TestCase):
         )
 
         results_object.run_date = datetime.datetime.now()
-        results_object.step_id = uuid.uuid4()
-        results_object.run_id = uuid.uuid4()
+        results_object.step_id = str(uuid.uuid4())
+        results_object.run_id = str(uuid.uuid4())
+
+        results_object.execution_profile.system_memory_utilization = random() 
+        results_object.execution_profile.network_traffic_in_bytes = randint(7e9, 9e10)
+        results_object.execution_profile.gpu_temperature = randint(70,130)
+        results_object.execution_profile.disk_io_utilization = random()
+        results_object.execution_profile.gpu_percent_of_time_accessing_memory = random()
+        results_object.execution_profile.cpu_utilization = random()
+        results_object.execution_profile.gpu_utilization = random()
+        results_object.execution_profile.gpu_memory_allocation = random()
 
         self.assertTrue(verify_result_contract(
             results_object,
