@@ -9,7 +9,7 @@ mlspeclib==0.0.24
 msgpack==1.0.0
 pymysql==0.9.3
 python-box==4.2.3
-pyyaml==5.3.1
+pyyaml==5.4
 ruamel.yaml.clib==0.2.0 ; python_version < '3.9' and platform_python_implementation == 'CPython'
 ruamel.yaml==0.16.10
 semver==2.10.1
